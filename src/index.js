@@ -3,6 +3,7 @@ const http = require('http');
 const cors = require('cors');
 const apiAuthRouter = require('./controllers/api-auth.controller');
 const apiTodoRouter = require('./controllers/api-todo.controller');
+const apiUserRouter = require('./controllers/api-user.controller');
 const testRouter = require('./controllers/test.controller');
 const { notFound, errorHandler, asyncHandler } = require('./middlewares/middlewares');
 const { initDB } = require('./dataBase');
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/api/user', apiUserRouter);
 app.use('/api/auth', apiAuthRouter);
 app.use('/api/todos', apiTodoRouter);
 app.use('/test', testRouter);

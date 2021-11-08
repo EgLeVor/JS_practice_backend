@@ -20,7 +20,7 @@ async function userLogin(req, res, next) {
             login: req.body.login,
             password: req.body.password
         }
-    })
+    });
     if (!findUser) {
         throw new ErrorResponse("LOGIN FAILED", 400)
     }
@@ -37,16 +37,16 @@ async function userRegistration(req, res, next) {
                 { login: req.body.login }
             ]
         }
-    })
-
+    });
 
     if (findUser) {
         throw new ErrorResponse("USER EXISTS", 400)
     }
 
-    const user = await User.create(req.body)
+    const user = await User.create(req.body);
     res.status(200).json(user);
 }
+
 
 initRoutes();
 
