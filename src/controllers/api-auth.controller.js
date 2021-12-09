@@ -9,8 +9,8 @@ const { nanoid } = require('nanoid');
 const router = Router();
 
 function initRoutes() {
-    router.post('/lgn', asyncHandler(userLogin));
-    router.post('/reg', asyncHandler(userRegistration));
+    router.post('/login', asyncHandler(userLogin));
+    router.post('/registration', asyncHandler(userRegistration));
 }
 
 async function userLogin(req, res, next) {
@@ -24,8 +24,8 @@ async function userLogin(req, res, next) {
     if (!findUser) {
         throw new ErrorResponse("LOGIN FAILED", 400)
     }
-    const token = await Token.create({ userId: findUser.id, value: nanoid(128)})
-    res.status(200).json({accessToken: token.value});
+    const token = await Token.create({ userId: findUser.id })
+    res.status(200).json({ accessToken: token.value });
 }
 
 async function userRegistration(req, res, next) {

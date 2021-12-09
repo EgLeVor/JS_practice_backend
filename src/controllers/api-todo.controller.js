@@ -74,7 +74,6 @@ async function deleteToDos(req, res, next) {
         {
             userId: req.token.userId
         },
-        truncate: true
     });
 
     res.status(200).json({ message: del + " TODOS DELETED"});

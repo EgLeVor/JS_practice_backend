@@ -9,11 +9,11 @@ Token.init(
         id: {
             type: Sequelize.DataTypes.UUID,
             primaryKey: true,
-            defaultValue: Sequelize.DataTypes.UUIDV4,
+            defaultValue: Sequelize.DataTypes.UUIDV4
         },
         value: {
             type: Sequelize.STRING,
-            defaultValue: () => nanoid(128),
+            defaultValue: () => nanoid(128)
         },
     },
     { sequelize: sequelize, underscored: true, modelName: 'token', timestamps: true }

@@ -39,6 +39,7 @@ const requireToken = async(req, res, next) => {
             value: token,
         }
     });
+    console.log(token);
     if(!findToken){
         throw new ErrorResponse("TOKEN NOT FOUND", 404);
     }

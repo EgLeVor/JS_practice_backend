@@ -7,7 +7,7 @@ const router = Router();
 
 function initRoutes() {
     router.get('/get', asyncHandler(requireToken), asyncHandler(userGetInfo));
-    router.post('/lgt', asyncHandler(requireToken), asyncHandler(userLogout));
+    router.post('/logout', asyncHandler(requireToken), asyncHandler(userLogout));
     router.patch('/upd', asyncHandler(requireToken), asyncHandler(userUpdateInfo));
 }
 
